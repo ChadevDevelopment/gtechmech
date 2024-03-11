@@ -44,7 +44,7 @@ const PrivacyPolicy = () => {
                 Use of own cookies
               </h4>
               <p>
-                When you access certain pages, a so-called "session cookie" is set. 
+                When you access certain pages, a so-called &quot;session cookie&quot; is set. 
                 This is a small text file that is automatically deleted from your computer at the end of the browser session. 
                 This file is used exclusively to enable you to use certain applications. You can change the settings in most web browsers so that your browser does not accept new cookies or you can have cookies that have been received deleted. 
                 You can usually find out how this works specifically for your browser using its help function.
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
                 Google Analytics
               </h4>
               <p>
-                This website uses Google Analytics, a web analysis service of Google Inc, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Analytics uses "cookies", which are text files placed on your computer, to help the website analyze how users use the site. 
+                This website uses Google Analytics, a web analysis service of Google Inc, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Analytics uses &quot;cookies&quot;, which are text files placed on your computer, to help the website analyze how users use the site. 
                 Google uses this information on behalf of the operator of this website to evaluate your use of the website, to compile reports on website activity and to provide other services relating to website activity and internet usage to the website operator.
                 The IP address transmitted by your browser as part of Google Analytics will not be merged with other Google data. You can prevent the storage of cookies or delete them by selecting the appropriate settings in your browser.
               </p>
