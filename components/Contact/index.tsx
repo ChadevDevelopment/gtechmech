@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import { motion } from "framer-motion";
 import axios from 'axios';
 import { toast } from "react-hot-toast";
@@ -7,21 +8,20 @@ import { useRouter } from "next/navigation";
 import SectionHeaderTwo from "../Common/SectionHeaderTwo";
 
 const Contact = () => {
-  const router = useRouter();
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    subject: '',
     message: '',
   });
 
   const validateForm = () => {
     return formData.name !== '' && 
            formData.email !== '' && 
-           formData.phone !== '' && 
+           formData.subject !== '' && 
            formData.message !== '';
   };
 
@@ -47,7 +47,7 @@ const Contact = () => {
 
       if (response.status === 200) {
         
-        setFormData({ name: '', email: '', phone: '',message: '' });
+        setFormData({ name: '', email: '', subject: '',message: '' });
 
         router.push("/mail-success");
       } else {
@@ -123,12 +123,12 @@ const Contact = () => {
 
                 <div className="flex flex-col lg:flex-row lg:justify-between gap-7.5 lg:gap-14 mb-12.5">
                   <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleInputChange}
-                    placeholder="Phone Number"
+                    placeholder="Subject"
                     className="w-full lg:w-1/2 bg-transparent border-b border-stroke focus-visible:outline-none focus:border-waterloo focus:placeholder:text-black pb-3.5"
                   />
                 </div>
@@ -149,7 +149,7 @@ const Contact = () => {
                       className={`inline-flex items-center gap-2.5 bg-black hover:bg-blackho ease-in-out duration-300 font-medium text-white rounded-md px-6 py-3
                       ${(!validateForm() || isSubmitting ) ? 'cursor-not-allowed' : ''}`}
                     >
-                    {isSubmitting ? 'Wird gesendet...' : 'Send message'}
+                    {isSubmitting ? 'Sending...' : 'Sent message'}
                     <svg
                       className="fill-white"
                       width="14"

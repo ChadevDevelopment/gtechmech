@@ -43,15 +43,6 @@ const checkIcon = (
   </svg>
 );
 
-// const List = ({ text }: { text: string }) => (
-//   <p className="mt-5 mb-5 flex items-center text-base text-body-color">
-//     <span className="mr-4 flex h-[30px] w-full max-w-[30px] items-center justify-center rounded-md bg-white bg-opacity-10">
-//       {checkIcon}
-//     </span>
-//     {text}
-//   </p>
-// );
-
 const FeatureDetail = ({ feature }: { feature: Feature }) => {
   const { id, title, lists, long_desc, images} = feature;
 
@@ -62,7 +53,6 @@ const FeatureDetail = ({ feature }: { feature: Feature }) => {
     setPage([page + newDirection, newDirection]);
   };
 
-
   return (
     <>
       <section className="pt-35 lg:pt-45 xl:pt-50 pb-20 lg:pb-25 xl:pb-30">
@@ -70,44 +60,50 @@ const FeatureDetail = ({ feature }: { feature: Feature }) => {
           <div className="flex flex-col-reverse lg:flex-row gap-7.5 xl:gap-12.5">
             <div className="animate_top rounded-md shadow-solid-13 bg-white border border-stroke p-7.5 md:p-10">
               <div className="mb-10 w-full overflow-hidden ">
-                <div className="relative aspect-[97/60] w-full sm:aspect-[97/44] flex justify-center">
-                  <AnimatePresence initial={false} custom={direction}>
-                    <motion.img
-                      key={page}
-                      src={images[imageIndex]}
-                      custom={direction}
-                      variants={variants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      className="carousel_img"
-                      transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.2 }
-                      }}
-                      drag="x"
-                      dragConstraints={{ left: 0, right: 0 }}
-                      dragElastic={1}
-                      onDragEnd={(e, { offset, velocity }) => {
-                        const swipe = swipePower(offset.x, velocity.x);
+                {images.length > 0 ? (
+                  <div className="relative aspect-[97/60] w-full sm:aspect-[97/44] flex justify-center">
+                    <AnimatePresence initial={false} custom={direction}>
+                      <motion.img
+                        key={page}
+                        src={images[imageIndex]}
+                        custom={direction}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        className="carousel_img"
+                        transition={{
+                          x: { type: "spring", stiffness: 300, damping: 30 },
+                          opacity: { duration: 0.2 }
+                        }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={1}
+                        onDragEnd={(e, { offset, velocity }) => {
+                          const swipe = swipePower(offset.x, velocity.x);
 
-                        if (swipe < -swipeConfidenceThreshold) {
-                          paginate(1);
-                        } else if (swipe > swipeConfidenceThreshold) {
-                          paginate(-1);
-                        }
-                      }}
-                    />
-                  </AnimatePresence>
-                  <div className="absolute top-1/2 left-0 transform -translate-y-1/2 text-white p-1 rounded-full hover:bg-opacity-75 focus:outline-none cursor-pointer z-10"
-                      onClick={() => paginate(1)}>
-                    <Image className='rounded-full bg-white' src='/images/shape/circled-chevron-left_hires.png' width={42} height={42} alt="title" />
+                          if (swipe < -swipeConfidenceThreshold) {
+                            paginate(1);
+                          } else if (swipe > swipeConfidenceThreshold) {
+                            paginate(-1);
+                          }
+                        }}
+                      />
+                    </AnimatePresence>
+                    <div className="absolute top-1/2 left-0 transform -translate-y-1/2 text-white p-1 rounded-full hover:bg-opacity-75 focus:outline-none cursor-pointer z-10"
+                        onClick={() => paginate(1)}>
+                      <Image className='rounded-full bg-white' src='/images/shape/circled-chevron-left_hires.png' width={42} height={42} alt="title" />
+                    </div>
+                    <div className="absolute top-1/2 right-0 transform -translate-y-1/2 text-white p-1 rounded-full hover:bg-opacity-75 focus:outline-none cursor-pointer z-10"
+                        onClick={() => paginate(-1)}>
+                      <Image className='rounded-full bg-white' src='/images/shape/circled-chevron-right_hires.png' width={42} height={42} alt="title" />
+                    </div>
                   </div>
-                  <div className="absolute top-1/2 right-0 transform -translate-y-1/2 text-white p-1 rounded-full hover:bg-opacity-75 focus:outline-none cursor-pointer z-10"
-                      onClick={() => paginate(-1)}>
-                    <Image className='rounded-full bg-white' src='/images/shape/circled-chevron-right_hires.png' width={42} height={42} alt="title" />
+                ) : (
+                  <div className="w-full flex justify-center items-center">
+                    No image available yet
                   </div>
-                </div>
+                )}
               </div>
 
               <h2 className="font-semibold text-3xl 2xl:text-sectiontitle2 text-black mt-11 mb-5">
@@ -118,22 +114,6 @@ const FeatureDetail = ({ feature }: { feature: Feature }) => {
                 <p>
                   {long_desc}
                 </p>
-
-                {/* <div className="wow fadeInUp mb-12 max-w-[570px] lg:mb-0"
-                     data-wow-delay=".15s">
-                  <div className="mx-[-12px] flex flex-wrap">
-                    <div className="w-full px-3 lg:w-full">
-                      {lists.slice(0, 4).map((listItem, index) => (
-                        <div
-                          key={index}
-                          className="w-full px-3 sm:w-1/2 lg:w-full"
-                        >
-                          <List text={listItem} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>

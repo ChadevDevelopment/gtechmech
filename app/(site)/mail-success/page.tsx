@@ -185,17 +185,17 @@ const MailSuccessPage = () => {
                 </svg>
               </div>
               <h3 className="mb-4 text-3xl font-bold text-black sm:text-4xl">
-                Ihre Nachricht wurde erfolgreich gesendet!
+                Your message has been sent successfully!
               </h3>
               <p className="mb-10 text-base leading-relaxed text-body-color">
-                Vielen Dank für Ihre Nachricht. 
-                Wir überprüfen regelmäßig unsere E-Mails und werden unser Bestes tun, um Ihre Anfrage zu beantworten.
+                Thank you for your message.
+                We check our emails regularly and will do our best to respond to your request.
               </p>
               <Link
                 href="/"
                 className="inline-flex items-center gap-2.5 bg-black hover:bg-blackho ease-in-out duration-300 font-medium text-white rounded-full px-6 py-3"
               >
-                Zurück zur Startseite
+                Back to the HomePage
                 <svg
                   className="fill-white"
                   width="14"

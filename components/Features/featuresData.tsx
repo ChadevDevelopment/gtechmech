@@ -2,7 +2,7 @@ import { Feature } from "@/types/feature";
 
 const featuresData: Feature[] = [
   {
-    id: "80189469-47c1-4443-acfb-94e1fe4b2ddb",
+    id: "restaurant_exhaust_system",
     icon: "/images/icon/050-house.svg",
     title: "RESTAURANT EXHAUST SYSTEM",
     description:
@@ -22,7 +22,7 @@ const featuresData: Feature[] = [
     ]
   },
   {
-    id: "9c586add-b29b-4885-9c21-441d094a49cb",
+    id: "ductwork_installation",
     icon: "/images/icon/047-turbine.svg",
     title: "DUCTWORK INSTALLATION",
     description:
@@ -41,7 +41,7 @@ const featuresData: Feature[] = [
     ]
   },
   {
-    id: "b218bbc1-7e3c-4a47-98d8-6eb57cfefbe7",
+    id: "heating_systems",
     icon: "/images/icon/012-heater.svg",
     title: "HEATING SYSTEMS",
     description: "Heating systems provide warmth indoors, using furnaces, boilers, or heat pumps to distribute heat effectively.",
@@ -60,7 +60,7 @@ const featuresData: Feature[] = [
     ]
   },
   {
-    id: "a218bbc1-7e3c-4a47-98d8-6eb57cfefbe7",
+    id: "cooling_systems",
     icon: "/images/icon/026-cooling tower.svg",
     title: "COOLING SYSTEMS",
     description:
@@ -78,7 +78,7 @@ const featuresData: Feature[] = [
     ]
   },
   {
-    id: "",
+    id: "refrigeration_services",
     icon: "/images/icon/009-fridge.svg",
     title: "REFRIGERATION SERVICES",
     description:
@@ -90,13 +90,10 @@ const featuresData: Feature[] = [
         ""
     ],
     images: [
-      "/images/features/.jpg",
-      "/images/features/2.jpg",
-      "/images/features/.jpg"
     ]
   },
   {
-    id: "",
+    id: "ductwork_accessories",
     icon: "/images/icon/sheet-metal.svg",
     title: "DUCTWORK ACCESSORIES",
     description:
@@ -108,9 +105,6 @@ const featuresData: Feature[] = [
         ""
     ],
     images: [
-      "/images/features/.jpg",
-      "/images/features/2.jpg",
-      "/images/features/.jpg"
     ]
   },
   

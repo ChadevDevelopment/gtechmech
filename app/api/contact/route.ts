@@ -6,10 +6,10 @@ export async function POST(
 ) {
   try {
     const body = await request.json();
-    const { name, email, subject, phone, message } = body;
+    const { name, email, subject, message } = body;
 
 
-    if (!name || !email || !subject || !phone || !message) {
+    if (!name || !email || !subject || !message) {
       return new NextResponse("Missing Fields", { status: 400 });
     }
 
@@ -25,7 +25,7 @@ export async function POST(
     const mailOptionsToClient = {
       from: process.env.SMTP_USER,
       to: email,
-      subject: subject,
+      subject: 'Confirmation of your request',
       html: `
       <section
         style="
@@ -38,7 +38,7 @@ export async function POST(
       >
         <header style="margin: 30px;">
           <img
-            src="https://rds-isolierungen.vercel.app/logo.png"
+            src="https://gtechmech.vercel.app/logo.png"
             alt="logo"
             style="width: 117px; height: 47px; margin: 0 auto"
           />
@@ -49,7 +49,7 @@ export async function POST(
             color: #333333;
             font-size: 24px;
           ">
-            Bestätigung Ihrer Anfrage
+            Confirmation of your request
           </h2>
 
           <p
@@ -59,7 +59,7 @@ export async function POST(
               color: #333333;
             "
           >
-            Sehr geehrte/r Kunde/in
+            Dear customer
             <span style="font-weight: 800; text-transform: capitalize;">${name}</span>
           </p>
           
@@ -70,8 +70,8 @@ export async function POST(
               color: #333333;
             "
           >
-            Vielen Dank für Ihre Anfrage bei RDS Isolierungen. 
-            Wir haben Ihr Anliegen erhalten und werden uns innerhalb der nächsten 24 Stunden mit Ihnen in Verbindung setzen, um weitere Details zu besprechen.
+            Thank you for your inquiry to G-Tech Mechanical. 
+            We have received your request and will be in touch with you within the next 24 hours to discuss further details.
           </p>
           
           <p
@@ -81,21 +81,21 @@ export async function POST(
               color: #333333;
             "
           >
-            Während Sie auf unsere Rückmeldung warten, laden wir Sie ein, mehr über unsere umfassenden Dienstleistungen auf unserer Webseite zu entdecken. Für eventuelle Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns auf die Gelegenheit, mit Ihnen zusammenzuarbeiten und Ihre Anforderungen im Bereich Isolierungen zu unterstützen.
+            While you wait for our response, we invite you to discover more about our comprehensive services on our website. We will be happy to answer any questions you may have. We look forward to the opportunity to work with you and support your insulation needs.
           </p>
 
           <p style="margin-top: 20px; color: #333333; font-weight: 800;">
-            Ihr RDS Isolierungen Team
+            Your G-Tech Mechanical Team
           </p>
         </main>
 
         <footer style="margin: 30px">
           <p style="color: #999999; margin-top: 10px;">
-            * Dies ist eine automatische E-Mail. Bitte nicht darauf antworten.
+            * This is an automated email. Please do not reply to it.
           </p>
 
           <p style="margin-top: 20px; color: #999999">
-            &copy; ${new Date().getFullYear()} RDS Isolierungen. Alle Rechte vorbehalten.
+            &copy; ${new Date().getFullYear()} G-Tech Mechanical. All rights reserved.
           </p>
         </footer>
       </section>`,
@@ -104,7 +104,7 @@ export async function POST(
     const mailOptionsToYou = {
       from: process.env.SMTP_USER,
       to: process.env.SMTP_USER,
-      subject: 'Neues Kontaktformular Übermittlung',
+      subject: 'New contact form submission',
       html: `<section
           style="
             margin: 0 auto;
@@ -116,7 +116,7 @@ export async function POST(
         >
           <header style="margin: 30px;">
             <img
-              src="https://rds-isolierungen.vercel.app/logo.png"
+              src="https://gtechmech.vercel.app/logo.png"
               alt="logo"
               style="width: 117px; height: 47px; margin: 0 auto"
             />
@@ -150,16 +150,6 @@ export async function POST(
             >
               ${name}
             </p>
-
-            <p
-              style="
-                margin-top: 20px;
-                line-height: 1.6;
-                color: #333333;
-              "
-            >
-              ${phone}
-            </p>
             
             <p
               style="
@@ -172,13 +162,13 @@ export async function POST(
             </p>
 
             <p style="margin-top: 20px; color: #333333; font-weight: 800;">
-              Ihr RDS Isolierungen Team
+              Your G-Tech Mechanical Team
             </p>
           </main>
 
           <footer style="margin: 30px">
             <p style="margin-top: 20px; color: #999999">
-              &copy; ${new Date().getFullYear()} RDS Isolierungen. Alle Rechte vorbehalten.
+              &copy; ${new Date().getFullYear()} G-Tech Mechanical. All rights reserved.
             </p>
           </footer>
         </section>`,
