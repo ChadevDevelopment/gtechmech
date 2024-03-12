@@ -195,7 +195,7 @@ const Contact = () => {
                   Adresse
                 </h4>
                 <p>
-                  <a href="https://maps.app.goo.gl/zvuqCPnQ7W7uwvNa9" className="hover:text-orange" target="_blank">141 Chancellor Dr, Woodbridge, ON L4L 7M9, Canada</a>
+                  <a href="https://maps.app.goo.gl/C4pMwX8s2AysnRkz6" className="hover:text-orange" target="_blank">335 Deerhurst Dr, Brampton, ON L6T 5K3, Canada</a>
                 </p>
               </div>
               <div className="mb-6 5">
@@ -213,7 +213,7 @@ const Contact = () => {
                   Phone
                 </h4>
                 <p>
-                  <a href="tel:92 423 567 7" className="hover:text-orange">+92 423 567 7</a>
+                  <a href="tel:+16477046740" className="hover:text-orange">+1 6477046740</a>
                 </p>
               </div>
             </motion.div>
