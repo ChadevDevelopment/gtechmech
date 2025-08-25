@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   keywords: ['', '', '', '', '', '', '', '', '', ''],
 };
 
-const FeatureDetailsPage = async ({ params: { id } }: { params: { id: string } }) => {
+const FeatureDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  // Await the params to get the actual values
+  const { id } = await params;
+  
   const feature: Feature = featuresData.find((p) => p.id === id)!
 
   if (!feature) {
