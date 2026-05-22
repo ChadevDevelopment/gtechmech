@@ -14,11 +14,11 @@ export async function POST(
     }
 
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_SERVICE, 
+      host: process.env.SMTP_HOST, 
       secure: true,
       auth: {
         user: process.env.SMTP_USER, 
-        pass: process.env.SMTP_PASS,
+        pass: process.env.SMTP_PASSWORD,
       },
     });
 
